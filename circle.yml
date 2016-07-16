@@ -1,0 +1,16 @@
+machine:
+  node:
+    version: 4.4.2
+  services:
+    - docker
+test:
+  override:
+    - make lint
+    - make test
+    - make build
+    - make integration
+deployment:
+  npm:
+    branch: master
+    commands:
+      - make publish

@@ -1,2 +1,2 @@
 # microlock
-Simple distributed locking with etcd
+Simple distributed locking with Etcd for Node.js
