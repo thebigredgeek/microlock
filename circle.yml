@@ -6,11 +6,11 @@ machine:
 test:
   override:
     - make lint
-    - make test
-    - make build
-    - make integration
-deployment:
-  npm:
-    branch: master
-    commands:
-      - make publish
+    - make unit
+    - make
+    - make integration etcd_image_version=v2.2.0
+    - make integration etcd_image_version=v2.2.1
+    - make integration etcd_image_version=v2.2.2
+    - make integration etcd_image_version=v2.2.3
+    - make integration etcd_image_version=v2.2.4
+    - make integration etcd_image_version=v2.2.5

@@ -34,6 +34,7 @@
     "eslint": "^2.8.0",
     "eslint-plugin-babel": "^3.2.0",
     "mocha": "^2.4.5",
+    "node-etcd": "^5.0.3",
     "sinon": "^1.17.3",
     "source-map-support": "^0.4.2"
   }

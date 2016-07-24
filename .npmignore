@@ -1,3 +1,7 @@
 src
 test
 coverage
+npm-debug.log
+.DS_Store
+.gitignore
+circle.yml

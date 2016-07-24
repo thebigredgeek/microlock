@@ -1,4 +1,4 @@
-require('source-map-support').install();
+//require('source-map-support').install();
 require('babel-register');
 require('babel-polyfill');
 
@@ -7,5 +7,5 @@ function kill (e) {
   process.exit(1);
 }
 
-process.on('uncaughtException', kill);
-process.on('unhandledRejection', kill);
+//process.on('uncaughtException', kill);
+//process.on('unhandledRejection', kill);

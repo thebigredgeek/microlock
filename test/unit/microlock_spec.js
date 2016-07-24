@@ -206,7 +206,6 @@ describe('microlock', () => {
           microlock.renew();
           expect(etcd.set.calledWith(key, node_id, {
             ttl,
-            prevExist: true,
             prevValue: node_id,
             refresh: true
           })).to.be.true;

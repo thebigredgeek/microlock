@@ -149,7 +149,6 @@ export default class Microlock extends EventEmitter {
   renew () {
     return new Promise((resolve, reject) => {
       return this.__etcd.set(this.__key, this.__node_id, {
-        prevExist: true,
         prevValue: this.__node_id,
         refresh: true,
         ttl: this.__ttl

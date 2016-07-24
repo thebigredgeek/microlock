@@ -6,13 +6,14 @@ SHELL := /bin/bash
 all: .FORCE
 	babel src -d lib
 
-test: .FORCE
+unit: .FORCE
 	mocha test/unit
 
 integration: .FORCE
-	docker-compose up -d
+	PREFIX=$(etcd_command_prefix) VERSION=$(etcd_image_version) docker-compose up -d
 	mocha test/integration
-	docker-compose down
+	PREFIX=$(etcd_command_prefix) VERSION=$(etcd_image_version) docker-compose stop || echo 'failed to bring down containers'
+	PREFIX=$(etcd_command_prefix) VERSION=$(etcd_image_version) docker-compose rm -f || echo 'failed to remove containers'
 
 lint: .FORCE
 	eslint src

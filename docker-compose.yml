@@ -1,5 +1,5 @@
 etcd:
-  image: quay.io/coreos/etcd
+  image: quay.io/coreos/etcd:$VERSION
   ports:
     - "2379:2379"
-  command: -advertise-client-urls=http://0.0.0.0:2379 -listen-client-urls=http://0.0.0.0:2379
+  command: $PREFIX-advertise-client-urls=http://0.0.0.0:2379 -listen-client-urls=http://0.0.0.0:2379
