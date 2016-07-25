@@ -165,3 +165,31 @@ foo.renew().then(function () {
 
 ### .destroy()
 Unbinds listeners/watchers from this client
+
+## Events
+
+### unlock
+Emits when the key is unlocked (node agnostic)
+
+```javascript
+foo.on(Microlock.events.unlocked, function () {
+  //handle unlocked with constant
+});
+
+foo.on('unlocked', function () {
+  //handle unlocked with string
+});
+```
+
+### locked
+Emits when the key is locked (node agnostic)
+
+```javascript
+foo.on(Microlock.events.locked, function () {
+  //handle locked with constant
+});
+
+foo.on('locked', function () {
+  //handle locked with string
+});
+```
