@@ -8,7 +8,11 @@ A dead simple distributed locking library for Node.js and [etcd](http://github.c
 
 ## What is a distrbuted lock?
 
-A distributed lock is a mechanism that provides serialized flow control on a context that is acted on by more than one process.  These processes typically operate on different machines via Service Oriented Architecture.  Each process uses an object called a distributed lock to "lock" access to the shared context so that only one process can act on it at a time, thereby ensuring consistency and preventing race conditions.
+A distributed lock is a mechanism that provides serialized flow control on a context that is acted on by more than one process.  These processes typically operate on different machines via Service Oriented Architecture.  Each process uses an object called a distributed lock to "lock" access to the shared context, aliased by a key, so that only one process, each aliased by a node id, can act on it at a time, thereby ensuring consistency and preventing race conditions.
+
+## Why not Redlock?
+
+Redis is great for a lot of things, and we love using it at Jobstart.  Caching, keeping processes stateless, and fast access to simply structured data are all cases where Redis shines.  However, implementing a distributed lock with Redis via Redlock has several caveats that are unsuitable for many cases.  Namely, if you need strong guarantees that a lock will not be acquired by multiple nodes at once even in the event of failure, Redlock isn't a viable option.
 
 ## Notes
 
@@ -193,3 +197,35 @@ foo.on('locked', function () {
   //handle locked with string
 });
 ```
+
+## Contributing
+
+Submit a PR.  Easy at that!
+
+### Building
+
+```bash
+  $ make
+```
+
+### Linting
+
+```bash
+  $ make lint
+```
+
+### Running unit tests
+
+```bash
+  $ make unit
+```
+
+### Running integration tests
+
+**[Docker Compose](https://docs.docker.com/compose/) is required**
+
+```bash
+  $ make integration etcd_image_version=v2.2.2
+```
+
+You can use whatever version you'd like to test against in the command above.
