@@ -1,6 +1,6 @@
 {
   "name": "microlock",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple distributed locking with Etcd for Node.js",
   "main": "lib/microlock.js",
   "repository": {
