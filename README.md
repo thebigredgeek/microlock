@@ -3,7 +3,7 @@ A dead simple distributed locking library for Node.js and [etcd](http://github.c
 
 [![NPM](https://nodei.co/npm/microlock.png)](https://nodei.co/npm/microlock/)
 
-[![CircleCI](https://circleci.com/gh/Jobstart/microlock.svg?style=shield)](https://circleci.com/gh/Jobstartinc/microlock/tree/master)
+[![CircleCI](https://circleci.com/gh/Jobstart/microlock.svg?style=shield)](https://circleci.com/gh/Jobstart/microlock/tree/master)
 
 
 
