@@ -12,7 +12,7 @@ A dead simple distributed locking library for Node.js and [etcd](http://github.c
 
 [Etcd](https://github.com/coreos/etcd) is a distributed key-value store, built by the [CoreOS](https://coreos.com/) team, that provides strong guarantees around consistency and partition tolerance.  Data is duplicated to all nodes in a given cluster and remains consistent between node failures.  Cluster leaders are elected via the [Raft consensus algorithm](https://raft.github.io/).  Etcd provides operations for atomic value swapping/removal based on criteria and TTL for values, making it a perfect media for distributed locks.
 
-## What is a distrbuted lock?
+## What is a distributed lock?
 
 A distributed lock is a mechanism that provides serialized flow control on a context that is acted on by more than one process.  These processes typically operate on different machines via Service Oriented Architecture.  Each process uses an object called a distributed lock to "lock" access to the shared context, aliased by a key, so that only one process, each aliased by a node id, can act on it at a time, thereby ensuring consistency and preventing race conditions.
 
