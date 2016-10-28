@@ -1,7 +1,12 @@
 PATH := node_modules/.bin:$(PATH)
 SHELL := /bin/bash
-
+NODE ?= $(shell which node)
+YARN ?= $(shell which yarn)
+PKG ?= $(if $(YARN),$(YARN),$(NODE) $(shell which npm))
 .FORCE:
+
+install: .FORCE
+	$(PKG) install
 
 all: .FORCE
 	babel src -d lib

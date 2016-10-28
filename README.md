@@ -22,7 +22,7 @@ Redis is great for a lot of things, and we love using it at Jobstart.  Caching, 
 
 ## Notes
 
-Microlock is currently compatible with Etd 2.2.x.  Within the next two weeks, there will be full support and test coverage for Etcd 2.2.x - 3.x.
+Microlock is currently compatible with Etd 2.2.x.  Work on support for Etcd 2.2.x - 3.x is in progress.
 
 ## Install
 **Requires NodeJS >= 4.0**
@@ -208,7 +208,11 @@ foo.on('locked', function () {
 
 ## Contributing
 
-Submit a PR.  Easy at that!
+### Installing packages
+
+```bash
+  $ make install
+```
 
 ### Building
 

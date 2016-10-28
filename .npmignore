@@ -2,6 +2,8 @@ src
 test
 coverage
 npm-debug.log
+yarn-debug.log
+yarn.lock
 .DS_Store
 .gitignore
 circle.yml
