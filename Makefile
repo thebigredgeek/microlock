@@ -5,11 +5,11 @@ YARN ?= $(shell which yarn)
 PKG ?= $(if $(YARN),$(YARN),$(NODE) $(shell which npm))
 .FORCE:
 
-install: .FORCE
-	$(PKG) install
-
 all: .FORCE
 	babel src -d lib
+
+install: .FORCE
+	$(PKG) install
 
 unit: .FORCE
 	mocha test/unit
@@ -28,3 +28,6 @@ publish:
 	echo -e "${NPM_USERNAME}\n${NPM_PASSWORD}\n${NPM_EMAIL}" | npm login
 	npm publish
 	npm logout
+
+clean: lib
+	rimraf lib
