@@ -3,7 +3,7 @@ A dead simple distributed locking library for Node.js and [etcd](http://github.c
 
 [![NPM](https://nodei.co/npm/microlock.png)](https://nodei.co/npm/microlock/)
 
-[![CircleCI](https://circleci.com/gh/Jobstart/microlock.svg?style=shield)](https://circleci.com/gh/Jobstart/microlock/tree/master)
+[![CircleCI](https://circleci.com/gh/thebigredgeek/microlock.svg?style=shield)](https://circleci.com/gh/thebigredgeek/microlock/tree/master)
 
 
 
@@ -18,7 +18,7 @@ A distributed lock is a mechanism that provides serialized flow control on a con
 
 ## Why not Redlock?
 
-Redis is great for a lot of things, and we love using it at Jobstart.  Caching, keeping processes stateless, and fast access to simply structured data are all cases where Redis shines.  However, implementing a distributed lock with Redis via Redlock has several caveats that are unsuitable for many cases.  Namely, if you need strong guarantees that a lock will not be acquired by multiple nodes at once even in the event of failure, Redlock isn't a viable option.
+Redis is great for a lot of things.  Caching, keeping processes stateless, and fast access to simply structured data are all cases where Redis shines.  However, implementing a distributed lock with Redis via Redlock has several caveats that are unsuitable for many cases.  Namely, if you need strong guarantees that a lock will not be acquired by multiple nodes at once even in the event of failure, Redlock isn't a viable option.
 
 ## Notes
 
