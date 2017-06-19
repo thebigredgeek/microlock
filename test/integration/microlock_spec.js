@@ -12,7 +12,7 @@ import Microlock, {
   InvalidTtlError,
   AlreadyLockedError,
   LockNotOwnedError
-} from '../../src/microlock';
+} from '../../lib/microlock';
 
 describe('microlock', () => {
   let etcd = null
