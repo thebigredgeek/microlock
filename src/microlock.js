@@ -133,7 +133,13 @@ export default class Microlock extends EventEmitter {
         return resolve(val)
       });
     })
-    .catch(() => this.__throwAlreadyLocked());
+    .catch((e) => {
+      // Key already exists
+      if (e.errorCode === 105) {
+        this.__throwAlreadyLocked();
+      }
+      throw e;
+    });
   }
 
   unlock () {
@@ -143,12 +149,18 @@ export default class Microlock extends EventEmitter {
         return resolve(res);
       });
     })
-    .catch(() => this.__throwLockNotOwned());
+    .catch((e) => {
+      // KeyNotFound or CompareFailed
+      if (e.errorCode === 100 || e.errorCode === 101) {
+        this.__throwLockNotOwned();
+      }
+      throw e;
+    });
   }
 
   renew () {
     return new Promise((resolve, reject) => {
-      return this.__etcd.set(this.__key, this.__node_id, {
+      return this.__etcd.set(this.__key, null, {
         prevValue: this.__node_id,
         refresh: true,
         ttl: this.__ttl
@@ -157,6 +169,12 @@ export default class Microlock extends EventEmitter {
         return resolve(val);
       })
     })
-    .catch(() => this.__throwLockNotOwned());
+    .catch((e) => {
+      // KeyNotFound or CompareFailed
+      if (e.errorCode === 100 || e.errorCode === 101) {
+        this.__throwLockNotOwned();
+      }
+      throw e;
+    });
   }
 }
