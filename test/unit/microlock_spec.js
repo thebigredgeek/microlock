@@ -171,7 +171,8 @@ describe('microlock', () => {
       });
       context('when unable to verify locked', () => {
         beforeEach(() => {
-          etcd.__setErr = true;
+          etcd.__setErr = new Error();
+          etcd.__setErr.errorCode = 105;
         });
         it('returns a rejecting promise passing AlreadyLockedError', (done) => {
           microlock.lock()
@@ -204,7 +205,7 @@ describe('microlock', () => {
       context('when able to verify locked stat by current node', () => {
         it('sets the state to locked with a refreshed ttl', () => {
           microlock.renew();
-          expect(etcd.set.calledWith(key, node_id, {
+          expect(etcd.set.calledWith(key, null, {
             ttl,
             prevValue: node_id,
             refresh: true
@@ -218,7 +219,8 @@ describe('microlock', () => {
       });
       context('when not able to verify locked state by current node', () => {
         beforeEach(() => {
-          etcd.__setErr = true;
+          etcd.__setErr = new Error();
+          etcd.__setErr.errorCode = 101;
         });
         it('returns a rejecting promise passing LockNotOwnedError', (done) => {
           microlock.renew()
