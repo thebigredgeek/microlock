@@ -3,3 +3,8 @@
 
 * Stable build
 
+1.1.0 / 2018-06-03
+==================
+
+* Send null for the value during lock renewal (#6)
+* Don't throw lock-not-owned when that isn't the error (#6)
