@@ -3,7 +3,7 @@
 
 * Stable build
 
-1.1.0 / 2018-06-03
+1.2.0 / 2018-08-15
 ==================
 
 * Send null for the value during lock renewal (#6)
