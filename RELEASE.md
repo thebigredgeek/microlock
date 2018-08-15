@@ -11,6 +11,8 @@ Be sure to include PR number and github username reference where applicable.
 
 5) Push the release commit
 
+6) BUILD THE MODULE! Run `make` or the published files will not match your source.
+
 6) Publish the package: `npm publish`
 
 7) Create a github release: `Release x.y.z`.  Keep changelog notes in the changelog, not the release comment
